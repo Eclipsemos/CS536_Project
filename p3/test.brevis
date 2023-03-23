@@ -1,0 +1,15 @@
+void a;
+boolean b;
+integer d;
+boolean c;
+record s (
+    integer m;
+);
+record a b;
+void func(integer a) {
+    integer k;
+    a++;
+    b--;
+    if (b == -1) { x = 4+3*5-y; while (c) { y = y*2+x; } } else { x = 0; }
+}
+

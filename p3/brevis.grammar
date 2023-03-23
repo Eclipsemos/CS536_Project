@@ -1,0 +1,112 @@
+/************************************************************************
+ Grammar for brevis programs        
+ ************************************************************************/
+program         ::= declList
+                ;
+	
+declList        ::= declList decl
+                | /* epsilon */
+                ;
+	
+decl            ::= varDecl
+                | fnDecl
+                | recordDecl       // record definitions only at top level
+                ;
+	
+varDeclList     ::= varDeclList varDecl
+                | /* epsilon */
+                ;
+	
+varDecl         ::= type id SEMICOLON
+                | RECORD id id SEMICOLON
+                ;
+	
+fnDecl          ::= type id formals fnBody
+                ;
+	
+recordDecl      ::= RECORD id LPAREN recordBody RPAREN SEMICOLON
+                ;
+	
+recordBody      ::= recordBody varDecl
+                | varDecl
+                ;
+	
+formals         ::= LPAREN RPAREN
+                | LPAREN formalsList RPAREN
+                ;
+	
+formalsList     ::= formalDecl
+                | formalDecl COMMA formalsList
+                ;
+	
+formalDecl      ::= type id                  // note: no record parameters
+                ;
+	
+fnBody          ::= LCURLY varDeclList stmtList RCURLY
+                ;
+	
+stmtList        ::= stmtList stmt
+                | /* epsilon */
+                ;
+	
+stmt            ::= assignExp SEMICOLON
+                | loc PLUSPLUS SEMICOLON
+                | loc MINUSMINUS SEMICOLON
+                | IF LPAREN exp RPAREN LCURLY varDeclList stmtList RCURLY
+                | IF LPAREN exp RPAREN LCURLY varDeclList stmtList RCURLY ELSE LCURLY varDeclList stmtList RCURLY
+                | WHILE LPAREN exp RPAREN LCURLY varDeclList stmtList RCURLY
+                | SCAN READ loc SEMICOLON
+                | PRINT WRITE exp SEMICOLON
+                | fncall SEMICOLON				
+                | RETURN exp SEMICOLON
+                | RETURN SEMICOLON
+                ;
+	
+assignExp       ::= loc ASSIGN exp
+                ;
+	
+exp             ::= assignExp
+                | exp PLUS exp
+                | exp MINUS exp
+                | exp TIMES exp
+                | exp DIVIDE exp
+                | exp EQUALS exp
+                | exp NOTEQUALS exp
+                | exp LESS exp
+                | exp LESSEQ exp
+                | exp GREATER exp
+                | exp GREATEREQ exp
+                | NOT exp
+                | exp AND exp
+                | exp OR exp
+                | MINUS term
+                | term
+                ;
+	
+term            ::= loc
+                | TRUE
+                | FALSE
+                | INTLITERAL
+                | STRINGLITERAL
+                | LPAREN exp RPAREN
+                | fncall
+                ;
+	
+fncall          ::=  id LPAREN RPAREN              // fn call with no args
+                | id LPAREN actualList RPAREN      // fn call with args
+                ;
+	
+actualList      ::= exp
+                | actualList COMMA exp
+                ;
+	
+type            ::= BOOL
+                | INT
+                | VOID
+                ;
+	
+loc             ::= id
+                | loc DOT id
+	
+id              ::= ID
+                ;

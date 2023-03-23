@@ -1,0 +1,53 @@
+void
+boolean
+integer
+true
+false
+record
+scan
+print
+if
+else
+while
+return
+{
+}
+(
+)
+;
+,
+.
+<-
+->
+++
+--
++
+-
+*
+/
+\
+&&
+||
+==
+\=
+<
+>
+<=
+>=
+=
+""
+"&!88"
+"use \n to denote a newline character"
+"include a quote like this \" and a backslash like this \\"
+//
+//23
+#
+##1
+##
+"unterminated
+"also unterminated \"
+"backslash followed by space: \ is not allowed"
+"bad escaped character: \a AND not terminated
+"very bad string \
+12345678
+124567888888888
