@@ -1,15 +1,63 @@
 void a;
 boolean b;
-int d;
+integer d;
 boolean c;
 record s (
-    int m;
+    integer m;
 );
 record a b;
-void func(int a){
-    int k;
+void func () {
+    record a b;
+    integer k;
+    void a;
+    boolean b;
+    integer d;
+    boolean c;
+    a = c = (((((a > b) && (a < b)) || ((a <= b) && ((\a) >= b))) || (\(a \= b))) || (a + ((((b * (c - d)) / e) * k) / (\b))));
+}
+integer func () {
+    integer k;
+    scan -> k;
+    print <- k;
+    dosomething(k);
+    dosomething();
+}
+boolean func () {
+    res = "abcd";
+    res = (a.b);
+    (res.a) = 1;
+    res = true;
+    res = false;
+    res = (c > 1);
+    res = (c < 2);
+    res = (c >= 1);
+    res = (c >= 2);
+    res = (c <= 1);
+    res = (c <= 2);
+    res = (c \= 2);
+    res = (c == 2);
+    res = (c * 2);
+    res = (c / 2);
+    res = (c && true);
+    res = (((c || c) || true) || 21);
+    res = (-c);
+    res = (\c);
+    return;
+    return a;
+    return func(a);
+    return func();
+}
+void func (integer a) {
+    integer k;
     a++;
     b--;
+    m = 1;
+    if ((b == (-1))) {
+        x = (4 + (3 * (5 - y)));
+        while (c) {
+            y = ((y * 2) + x);
+        }
+    }
     if ((b == (-1))) {
         x = (4 + (3 * (5 - y)));
         while (c) {
@@ -18,5 +66,8 @@ void func(int a){
     }
     else {
         x = 0;
+    }
+    while (true) {
+        a = (a * 2);
     }
 }

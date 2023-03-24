@@ -278,9 +278,9 @@ class FnDeclNode extends DeclNode {
         myType.unparse(p, indent);
         p.print(" ");
         myId.unparse(p, indent);
-        p.print("(");
+        p.print(" (");
         myFormalsList.unparse(p, indent);
-        p.print(")");
+        p.print(") ");
         myBody.unparse(p, indent);
     }
 
@@ -348,7 +348,7 @@ class IntNode extends TypeNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
-        p.print("int");
+        p.print("integer");
     }
 }
 
@@ -516,7 +516,7 @@ class ReadStmtNode extends StmtNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
-        p.print("cin >> ");
+        p.print("scan -> ");
         myExp.unparse(p, indent);
         p.println(";");
     }
@@ -531,7 +531,7 @@ class WriteStmtNode extends StmtNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
-        p.print("cout >> ");
+        p.print("print <- ");
         myExp.unparse(p, indent);
         p.println(";");
     }
@@ -763,7 +763,7 @@ class NotNode extends UnaryExpNode {
 
     public void unparse(PrintWriter p, int indent) {
         p.print("(");
-        p.print("!");
+        p.print("\\");
         myExp.unparse(p, indent);
         p.printf(")");
     }
@@ -851,7 +851,7 @@ class NotEqualsNode extends BinaryExpNode {
     public void unparse(PrintWriter p, int indent) {
         p.print("(");
         myExp1.unparse(p, indent);
-        p.print(" != ");
+        p.print(" \\= ");
         myExp2.unparse(p, indent);
         p.printf(")");
     }
